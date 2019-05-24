@@ -1,5 +1,0 @@
-module full_adder (A, B, cin, sum, cout);
-	input logic A, B, cin;
-	output logic sum, cout;
-	
-	
