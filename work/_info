@@ -1,0 +1,141 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/nathan7/Documents/bomberman
+valtera_up_avalon_video_vga_timing
+Z1 !s110 1558745537
+!i10b 1
+!s100 d_[b<b>^^KQS=2DZ=dMJ;0
+Ia[BWlB3WU49@C;67h0BX@3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1558740594
+8./altera_up_avalon_video_vga_timing.v
+F./altera_up_avalon_video_vga_timing.v
+L0 47
+Z4 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z5 !s108 1558745537.000000
+!s107 ./altera_up_avalon_video_vga_timing.v|
+!s90 -reportprogress|300|./altera_up_avalon_video_vga_timing.v|
+!i113 1
+Z6 tCvgOpt 0
+vCLOCK25_PLL
+R1
+!i10b 1
+!s100 HmQDfcBn2^JHBH>QKWMV_0
+IPAJE>a1lB@Te=KB8n4?oY1
+R2
+R0
+R3
+8./CLOCK25_PLL.v
+F./CLOCK25_PLL.v
+L0 8
+R4
+r1
+!s85 0
+31
+R5
+!s107 ./CLOCK25_PLL.v|
+!s90 -reportprogress|300|./CLOCK25_PLL.v|
+!i113 1
+R6
+n@c@l@o@c@k25_@p@l@l
+vCLOCK25_PLL_0002
+R1
+!i10b 1
+!s100 TGjKK]SB@KM:LmQ=2OPYH0
+IV9Qc2ADz4YBzj5CTdQbB51
+R2
+R0
+w1558740728
+8./CLOCK25_PLL/CLOCK25_PLL_0002.v
+F./CLOCK25_PLL/CLOCK25_PLL_0002.v
+L0 2
+R4
+r1
+!s85 0
+31
+R5
+!s107 ./CLOCK25_PLL/CLOCK25_PLL_0002.v|
+!s90 -reportprogress|300|./CLOCK25_PLL/CLOCK25_PLL_0002.v|
+!i113 1
+R6
+n@c@l@o@c@k25_@p@l@l_0002
+vtestscreen
+Z7 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z8 !s110 1558745536
+!i10b 1
+!s100 <XieiQS@EV[Ej9`jT<:P:1
+IBFD1KM`z6_P=0oHYo4G@K0
+R2
+Z9 !s105 testscreen_sv_unit
+S1
+R0
+Z10 w1558745531
+Z11 8./testscreen.sv
+Z12 F./testscreen.sv
+L0 1
+R4
+r1
+!s85 0
+31
+Z13 !s108 1558745536.000000
+Z14 !s107 ./testscreen.sv|
+Z15 !s90 -reportprogress|300|./testscreen.sv|
+!i113 1
+R6
+vtestscreen_testbench
+R7
+R8
+!i10b 1
+!s100 ho4hei1YlXU=8UazK310g1
+I3P0jI^f;QgCLJCz5kjoga3
+R2
+R9
+S1
+R0
+R10
+R11
+R12
+L0 117
+R4
+r1
+!s85 0
+31
+R13
+R14
+R15
+!i113 1
+R6
+vvideo_driver
+R7
+R8
+!i10b 1
+!s100 TMIYHc?H^clD];MFI?P7?1
+IelL;zR>k`RVnDP4P1M7IG1
+R2
+!s105 video_driver_sv_unit
+S1
+R0
+w1558740595
+8./video_driver.sv
+F./video_driver.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R13
+!s107 ./video_driver.sv|
+!s90 -reportprogress|300|./video_driver.sv|
+!i113 1
+R6

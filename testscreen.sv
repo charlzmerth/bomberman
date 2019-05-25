@@ -3,13 +3,16 @@ module testscreen (CLOCK_50, SW, VGA_R, VGA_G, VGA_B, VGA_BLANK_N, VGA_CLK, VGA_
 	input logic CLOCK_50;
 	input logic [9:0] SW;
 
-	output [7:0] VGA_G, VGA_R, VGA_B;
+	output logic [7:0] VGA_G, VGA_R, VGA_B;
 	output logic VGA_BLANK_N, VGA_CLK, VGA_HS, VGA_SYNC_N, VGA_VS;	
 
 	logic [9:0] x;
 	logic [8:0] y;
 	logic [7:0] r, g, b;
 	logic Stage1Done, Stage2Done, Stage3Done;
+	logic [9:0] Counterx;
+	logic [8:0] Countery;
+	
 	integer i, j;
 
 	enum {Stage1, Stage2, Stage3, Stage4} ps, ns;
@@ -31,50 +34,109 @@ module testscreen (CLOCK_50, SW, VGA_R, VGA_G, VGA_B, VGA_BLANK_N, VGA_CLK, VGA_
 	end
 	
 	always_ff @(posedge CLOCK_50) begin
-		if (SW[9])
-			ps = Stage1;
-		else
-			ps = ns;
-		
-		if (ps ==Stage1) begin //brick
-			r <= 77;
-			g <= 79;
-			b <= 76;
-			for (i = 0; i < 640; i++) begin
-				x <= i;
-				for (j = 0; j < 480; j++) begin
-					y <= j;
+		if (SW[9]) begin
+			Countery <= 0;
+			Counterx <= 0;
+			ps <= Stage1;
+			x <= 0;
+			y <= 0;
+		end
+		else begin
+			ps <= ns;
+			if(!(ps == Stage3)) begin
+			x <= Counterx;
+			y <= Countery;
+			end
+			else begin
+				if ((Counterx % 80) <= 40) begin
+				x <= Counterx;
+				end
+				if ((Countery % 80) <= 40) begin
+				y <= Countery;
 				end
 			end
-			Stage1Done <= 1;
+			end
+			
+			if (ps == Stage1) begin //brick
+			r = 77;
+			g = 79;
+			b = 76;
+			if (Countery < 480) begin//480
+				Countery = Countery + 1;
+			end
+			else if ((Countery >= 480) && (Counterx >= 640)) begin//480 640
+				Countery = 0;
+				Counterx = 0;
+				Stage1Done = 1;
+			end
+			else begin
+				Countery = 0;
+				Counterx = Counterx + 1;
+			end
 		end
 		else if (ps == Stage2) begin ///grass
 			r <= 36;
 			g <= 104;
 			b <= 3;
-			for (i = 40; i < 600; i++) begin
-				x <= i;
-				for (j = 40; j < 440; j++) begin
-					y <= j;
-				end
+			if (Countery < 440) begin//440
+				Countery = Countery + 1;
 			end
-			Stage2Done <= 1;
+			else if ((Countery >= 440) && (Counterx >= 600)) begin//440 600
+				Countery = 0;
+				Counterx = 0;
+				Stage2Done = 1;
+			end
+			else begin
+				Countery = 0;
+				Counterx = Counterx + 1;
+			end
 		end
 		else if (ps == Stage3) begin
 			r <= 77;
 			g <= 79;
 			b <= 76;
-			for (i = 40; i < 600; i++) begin
-				if ((i % 80) <= 40)
-					x <= i;
-				for (j = 40; j < 440; j++) begin
-					if ((j % 80) <= 40)
-					y <= j;
-				end
+			if (Countery < 440) begin
+				Countery = Countery + 1;
 			end
-			Stage3Done <= 1;
+			else if ((Countery >= 440) && (Counterx >= 600)) begin
+				Countery = 0;
+				Counterx = 0;
+				Stage3Done = 1;
+			end
+			else begin
+				Countery = 0;
+				Counterx = Counterx + 1;
+			end
 		end
 	end
 	
-	video_driver display (.CLOCK_50, .reset(SW[9]), .x, .y, .r, .g, .b, .VGA_R, .VGA_G, .VGA_B, .VGA_BLANK_N, .VGA_CLK, .VGA_HS, .VGA_SYNC_N, .VGA_VS); 
+
+endmodule
+
+`timescale 1 ps / 1 ps
+module testscreen_testbench();
+
+	logic CLOCK_50;
+	logic [9:0] SW;
+	logic [7:0] VGA_G, VGA_R, VGA_B;
+	logic VGA_BLANK_N, VGA_CLK, VGA_HS, VGA_SYNC_N, VGA_VS;
+	integer i;
+	
+	testscreen dut (CLOCK_50, SW, VGA_R, VGA_G, VGA_B, VGA_BLANK_N, VGA_CLK, VGA_HS, VGA_SYNC_N, VGA_VS);
+	
+	parameter CLOCK_PERIOD = 50;
+	initial begin
+	CLOCK_50 <= 0;
+	forever #(CLOCK_PERIOD/2) CLOCK_50 <= ~CLOCK_50;
+	end
+	
+	initial begin
+	SW[9] = 1;
+	@(posedge CLOCK_50);
+	SW[9] = 0; @(posedge CLOCK_50);
+	for (i = 0; i < 8000; i++) begin
+	@(posedge CLOCK_50);
+	end
+	$stop;
+	end
 endmodule
