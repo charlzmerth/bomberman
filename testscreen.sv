@@ -18,6 +18,7 @@ module testscreen (CLOCK_50, LEDR, SW, VGA_R, VGA_G, VGA_B, VGA_BLANK_N, VGA_CLK
 	logic [30:0] breakableBlocksBroken;
 	
 	logic [3:0] KEY, p1_move, p2_move;
+	logic p1_bomb, p2_bomb;
 	
 	assign reset = SW[9];
 	assign KEY = p1_move;
@@ -25,7 +26,7 @@ module testscreen (CLOCK_50, LEDR, SW, VGA_R, VGA_G, VGA_B, VGA_BLANK_N, VGA_CLK
 	assign LEDR[8:5] = p1_move;
 	assign LEDR[3:0] = p2_move;
 
-	player_input pi (.clk(CLOCK_50), .reset, .PS2_CLK, .PS2_DAT, .p1_move, .p2_move);
+	player_input pi (.clk(CLOCK_50), .reset, .PS2_CLK, .PS2_DAT, .p1_move, .p2_move, .p1_bomb, .p2_bomb);
 	
 	always_ff @(posedge CLOCK_50) begin
 	if (SW[9]) begin
@@ -52,19 +53,19 @@ module testscreen (CLOCK_50, LEDR, SW, VGA_R, VGA_G, VGA_B, VGA_BLANK_N, VGA_CLK
 		breakableBlocksBroken <= 0;
 	end
 		else begin
-		if(SW[8] && player1Alive)begin
+		if(p1_bomb && player1Alive)begin
 			bomb1On <= 1;
 			Bombx1 <= playerX;
 			Bomby1 <= playerY;
 			bomb1Counter <= 0;
 		end
-		if(SW[7] && player2Alive)begin
+		if(p2_bomb && player2Alive)begin
 			bomb2On <= 1;
 			Bombx2 <= playerX2;
 			Bomby2 <= playerY2;
 			bomb2Counter <= 0;
 		end
-		if ((!KEY[0]) && (playerX < 560) && !((((playerX + 1) >= 80) && ((playerX + 1) <= 120) && (playerY >= 80) && (playerY <= 140)) ||
+		if ((p1_move[3]) && (playerX < 560) && !((((playerX + 1) >= 80) && ((playerX + 1) <= 120) && (playerY >= 80) && (playerY <= 140)) ||
 					(((playerX + 1) >= 80) && ((playerX + 1) <= 120) && (playerY >= 160) && (playerY <= 220)) ||
 					(((playerX + 1) >= 80) && ((playerX + 1) <= 120) && (playerY >= 240) && (playerY <= 300)) ||
 					(((playerX + 1) >= 80) && ((playerX + 1) <= 120) && (playerY >= 320) && (playerY <= 380)) ||
@@ -136,7 +137,7 @@ module testscreen (CLOCK_50, LEDR, SW, VGA_R, VGA_G, VGA_B, VGA_BLANK_N, VGA_CLK
 			playerX <= playerX + 1;
 			end
 		end
-		if ((!KEY[1]) && (playerY < 400) && !(((playerX >= 80) && (playerX <= 140) && ((playerY + 1) >= 80) && ((playerY + 1) <= 140)) ||
+		if ((p1_move[2]) && (playerY < 400) && !(((playerX >= 80) && (playerX <= 140) && ((playerY + 1) >= 80) && ((playerY + 1) <= 140)) ||
 					((playerX >= 80) && (playerX <= 140) && ((playerY + 1) >= 160) && ((playerY + 1) <= 220)) ||
 					((playerX >= 80) && (playerX <= 140) && ((playerY + 1) >= 240) && ((playerY + 1) <= 300)) ||
 					((playerX >= 80) && (playerX <= 140) && ((playerY + 1) >= 320) && ((playerY + 1) <= 380)) ||
@@ -208,7 +209,7 @@ module testscreen (CLOCK_50, LEDR, SW, VGA_R, VGA_G, VGA_B, VGA_BLANK_N, VGA_CLK
 			playerY <= playerY + 1;
 			end
 		end
-		if ((!KEY[2]) && (playerY > 60) && !(((playerX >= 80) && (playerX <= 140) && ((playerY - 1) >= 80) && ((playerY - 1) <= 140)) ||
+		if ((p1_move[1]) && (playerY > 60) && !(((playerX >= 80) && (playerX <= 140) && ((playerY - 1) >= 80) && ((playerY - 1) <= 140)) ||
 					((playerX >= 80) && (playerX <= 140) && ((playerY - 1) >= 160) && ((playerY - 1) <= 220)) ||
 					((playerX >= 80) && (playerX <= 140) && ((playerY - 1) >= 240) && ((playerY - 1) <= 300)) ||
 					((playerX >= 80) && (playerX <= 140) && ((playerY - 1) >= 320) && ((playerY - 1) <= 380)) ||
@@ -280,7 +281,7 @@ module testscreen (CLOCK_50, LEDR, SW, VGA_R, VGA_G, VGA_B, VGA_BLANK_N, VGA_CLK
 			playerY <= playerY - 1;
 			end
 		end
-		if ((!KEY[3]) && (playerX > 60) && !((((playerX - 1) >= 100) && ((playerX - 1) <= 140) && (playerY >= 80) && (playerY <= 140)) ||
+		if ((p1_move[0]) && (playerX > 60) && !((((playerX - 1) >= 100) && ((playerX - 1) <= 140) && (playerY >= 80) && (playerY <= 140)) ||
 					(((playerX - 1) >= 100) && ((playerX - 1) <= 140) && (playerY >= 160) && (playerY <= 220)) ||
 					(((playerX - 1) >= 100) && ((playerX - 1) <= 140) && (playerY >= 240) && (playerY <= 300)) ||
 					(((playerX - 1) >= 100) && ((playerX - 1) <= 140) && (playerY >= 320) && (playerY <= 380)) ||
@@ -353,7 +354,7 @@ module testscreen (CLOCK_50, LEDR, SW, VGA_R, VGA_G, VGA_B, VGA_BLANK_N, VGA_CLK
 			end
 		end
 		
-		if ((SW[0]) && (playerX2 < 560) && !((((playerX2 + 1) >= 80) && ((playerX2 + 1) <= 120) && (playerY2 >= 80) && (playerY2 <= 140)) ||
+		if ((p2_move[3]) && (playerX2 < 560) && !((((playerX2 + 1) >= 80) && ((playerX2 + 1) <= 120) && (playerY2 >= 80) && (playerY2 <= 140)) ||
 					(((playerX2 + 1) >= 80) && ((playerX2 + 1) <= 120) && (playerY2 >= 160) && (playerY2 <= 220)) ||
 					(((playerX2 + 1) >= 80) && ((playerX2 + 1) <= 120) && (playerY2 >= 240) && (playerY2 <= 300)) ||
 					(((playerX2 + 1) >= 80) && ((playerX2 + 1) <= 120) && (playerY2 >= 320) && (playerY2 <= 380)) ||
@@ -425,7 +426,7 @@ module testscreen (CLOCK_50, LEDR, SW, VGA_R, VGA_G, VGA_B, VGA_BLANK_N, VGA_CLK
 			playerX2 <= playerX2 + 1;
 			end
 		end
-		if ((SW[1]) && (playerY2 < 400) && !(((playerX2 >= 80) && (playerX2 <= 140) && ((playerY2 + 1) >= 80) && ((playerY2 + 1) <= 140)) ||
+		if ((p2_move[2]) && (playerY2 < 400) && !(((playerX2 >= 80) && (playerX2 <= 140) && ((playerY2 + 1) >= 80) && ((playerY2 + 1) <= 140)) ||
 					((playerX2 >= 80) && (playerX2 <= 140) && ((playerY2 + 1) >= 160) && ((playerY2 + 1) <= 220)) ||
 					((playerX2 >= 80) && (playerX2 <= 140) && ((playerY2 + 1) >= 240) && ((playerY2 + 1) <= 300)) ||
 					((playerX2 >= 80) && (playerX2 <= 140) && ((playerY2 + 1) >= 320) && ((playerY2 + 1) <= 380)) ||
@@ -497,7 +498,7 @@ module testscreen (CLOCK_50, LEDR, SW, VGA_R, VGA_G, VGA_B, VGA_BLANK_N, VGA_CLK
 			playerY2 <= playerY2 + 1;
 			end
 		end
-		if ((SW[2]) && (playerY2 > 60) && !(((playerX2 >= 80) && (playerX2 <= 140) && ((playerY2 - 1) >= 80) && ((playerY2 - 1) <= 140)) ||
+		if ((p2_move[1]) && (playerY2 > 60) && !(((playerX2 >= 80) && (playerX2 <= 140) && ((playerY2 - 1) >= 80) && ((playerY2 - 1) <= 140)) ||
 					((playerX2 >= 80) && (playerX2 <= 140) && ((playerY2 - 1) >= 160) && ((playerY2 - 1) <= 220)) ||
 					((playerX2 >= 80) && (playerX2 <= 140) && ((playerY2 - 1) >= 240) && ((playerY2 - 1) <= 300)) ||
 					((playerX2 >= 80) && (playerX2 <= 140) && ((playerY2 - 1) >= 320) && ((playerY2 - 1) <= 380)) ||
@@ -569,7 +570,7 @@ module testscreen (CLOCK_50, LEDR, SW, VGA_R, VGA_G, VGA_B, VGA_BLANK_N, VGA_CLK
 			playerY2 <= playerY2 - 1;
 			end
 		end
-		if ((SW[3]) && (playerX2 > 60) && !((((playerX2 - 1) >= 100) && ((playerX2 - 1) <= 140) && (playerY2 >= 80) && (playerY2 <= 140)) ||
+		if ((p2_move[0]) && (playerX2 > 60) && !((((playerX2 - 1) >= 100) && ((playerX2 - 1) <= 140) && (playerY2 >= 80) && (playerY2 <= 140)) ||
 					(((playerX2 - 1) >= 100) && ((playerX2 - 1) <= 140) && (playerY2 >= 160) && (playerY2 <= 220)) ||
 					(((playerX2 - 1) >= 100) && ((playerX2 - 1) <= 140) && (playerY2 >= 240) && (playerY2 <= 300)) ||
 					(((playerX2 - 1) >= 100) && ((playerX2 - 1) <= 140) && (playerY2 >= 320) && (playerY2 <= 380)) ||

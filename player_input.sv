@@ -25,14 +25,14 @@ module player_input (
 				'h23: p1_move[3] <= makeBreak; // D
 				
 				//Player2 codes
-				'he06b: p1_move[0] <= makeBreak; // Left
-				'he075: p1_move[1] <= makeBreak; // Up
-				'he072: p1_move[2] <= makeBreak; // Down
-				'he074: p1_move[3] <= makeBreak; // Right
+				'h6b: p2_move[0] <= makeBreak; // Left
+				'h75: p2_move[1] <= makeBreak; // Up
+				'h72: p2_move[2] <= makeBreak; // Down
+				'h74: p2_move[3] <= makeBreak; // Right
 				
 				// Control keys
 				'h29: p1_bomb <= makeBreak; // Spacebar
-				'he05a: p2_bomb <= makeBreak; // Enter
+				'h5a: p2_bomb <= makeBreak; // Enter
 			endcase
 		end
 	end

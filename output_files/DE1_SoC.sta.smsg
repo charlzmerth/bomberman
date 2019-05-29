@@ -78,3 +78,15 @@ Warning (332049): Ignored set_output_delay at DE1_SoC_golden_top.sdc(85): Argume
 Warning (332174): Ignored filter at DE1_SoC_golden_top.sdc(93): VGA_BLANK could not be matched with a port File: C:/Users/merthc/Desktop/bomberman/DE1_SoC_golden_top.sdc Line: 93
 Warning (332049): Ignored set_output_delay at DE1_SoC_golden_top.sdc(93): Argument <targets> is an empty collection File: C:/Users/merthc/Desktop/bomberman/DE1_SoC_golden_top.sdc Line: 93
 Warning (332049): Ignored set_output_delay at DE1_SoC_golden_top.sdc(94): Argument <targets> is an empty collection File: C:/Users/merthc/Desktop/bomberman/DE1_SoC_golden_top.sdc Line: 94
+Warning (332060): Node: player_input:pi|keyboard_press_driver:keyboard|keyboard_inner_driver:kbd|ready_set was determined to be a clock but was found without an associated clock assignment.
+Warning (332060): Node: player_input:pi|keyboard_press_driver:keyboard|keyboard_inner_driver:kbd|keyboard_clk_filtered was determined to be a clock but was found without an associated clock assignment.
+Warning (332060): Node: player_input:pi|keyboard_press_driver:keyboard|keyboard_inner_driver:kbd|clock was determined to be a clock but was found without an associated clock assignment.
+Warning (332060): Node: player_input:pi|keyboard_press_driver:keyboard|keyboard_inner_driver:kbd|ready_set was determined to be a clock but was found without an associated clock assignment.
+Warning (332060): Node: player_input:pi|keyboard_press_driver:keyboard|keyboard_inner_driver:kbd|keyboard_clk_filtered was determined to be a clock but was found without an associated clock assignment.
+Warning (332060): Node: player_input:pi|keyboard_press_driver:keyboard|keyboard_inner_driver:kbd|clock was determined to be a clock but was found without an associated clock assignment.
+Warning (332060): Node: player_input:pi|keyboard_press_driver:keyboard|keyboard_inner_driver:kbd|ready_set was determined to be a clock but was found without an associated clock assignment.
+Warning (332060): Node: player_input:pi|keyboard_press_driver:keyboard|keyboard_inner_driver:kbd|keyboard_clk_filtered was determined to be a clock but was found without an associated clock assignment.
+Warning (332060): Node: player_input:pi|keyboard_press_driver:keyboard|keyboard_inner_driver:kbd|clock was determined to be a clock but was found without an associated clock assignment.
+Warning (332060): Node: player_input:pi|keyboard_press_driver:keyboard|keyboard_inner_driver:kbd|ready_set was determined to be a clock but was found without an associated clock assignment.
+Warning (332060): Node: player_input:pi|keyboard_press_driver:keyboard|keyboard_inner_driver:kbd|keyboard_clk_filtered was determined to be a clock but was found without an associated clock assignment.
+Warning (332060): Node: player_input:pi|keyboard_press_driver:keyboard|keyboard_inner_driver:kbd|clock was determined to be a clock but was found without an associated clock assignment.

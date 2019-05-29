@@ -1,0 +1,28 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\Users\merthc\Desktop\bomberman\sd_reader.qsys --block-symbol-file --output-directory=C:\Users\merthc\Desktop\bomberman\sd_reader --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading bomberman/sd_reader.qsys
+Progress: Reading input file
+Progress: Adding Altera_UP_SD_Card_Avalon_Interface_0 [Altera_UP_SD_Card_Avalon_Interface 17.0]
+Progress: Parameterizing module Altera_UP_SD_Card_Avalon_Interface_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\Users\merthc\Desktop\bomberman\sd_reader.qsys --synthesis=VERILOG --output-directory=C:\Users\merthc\Desktop\bomberman\sd_reader\synthesis --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading bomberman/sd_reader.qsys
+Progress: Reading input file
+Progress: Adding Altera_UP_SD_Card_Avalon_Interface_0 [Altera_UP_SD_Card_Avalon_Interface 17.0]
+Progress: Parameterizing module Altera_UP_SD_Card_Avalon_Interface_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: sd_reader: Generating sd_reader "sd_reader" for QUARTUS_SYNTH
+Info: Altera_UP_SD_Card_Avalon_Interface_0: "sd_reader" instantiated Altera_UP_SD_Card_Avalon_Interface "Altera_UP_SD_Card_Avalon_Interface_0"
+Info: sd_reader: Done "sd_reader" with 2 modules, 12 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

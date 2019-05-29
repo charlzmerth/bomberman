@@ -2,7 +2,7 @@ module audio (CLOCK_50, CLOCK2_50, KEY, SW, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XC
 		        AUD_DACLRCK, AUD_ADCLRCK, AUD_BCLK, AUD_ADCDAT, AUD_DACDAT);
 
 	input CLOCK_50, CLOCK2_50;
-	input [0:0] KEY;
+	input [3:0] KEY;
 	input [9:0] SW;
 	// I2C Audio/Video config interface
 	output FPGA_I2C_SCLK;
@@ -19,9 +19,10 @@ module audio (CLOCK_50, CLOCK2_50, KEY, SW, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XC
 	wire signed [23:0] writedata_left, writedata_right;
 	wire signed [23:0] writedata_left_unfiltered, writedata_right_unfiltered;
 	wire signed [23:0] writedata_left_filtered, writedata_right_filtered;
-	wire reset = ~KEY[0];
+	wire reset = SW[0];
 	wire read_write_ready = read_ready && write_ready;
-
+	reg [13:0] play_counter;
+	
 	/////////////////////////////////
 	// Your code goes here 
 	/////////////////////////////////
@@ -30,6 +31,15 @@ module audio (CLOCK_50, CLOCK2_50, KEY, SW, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XC
 	assign writedata_right_unfiltered = write_ready ? readdata_right : 0;
 	assign read = read_ready;
 	assign write = write_ready;
+	
+	always_ff @(posedge CLOCK_50) begin
+		if (reset) begin
+			play_counter <= 0;
+		end
+		else if (~KEY[2]) begin
+			incr_counter <= 1;
+		end
+	end
 	
 	// SW[0] selects whether filtered or unfiltered audio is output
 	
