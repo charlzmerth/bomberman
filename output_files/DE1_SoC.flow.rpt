@@ -1,5 +1,5 @@
 Flow report for DE1_SoC
-Wed May 29 00:27:51 2019
+Thu May 30 00:50:09 2019
 Quartus Prime Version 17.0.2 Build 602 07/19/2017 SJ Standard Edition
 
 
@@ -41,18 +41,18 @@ agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Flow Summary                                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Flow Status                     ; Successful - Wed May 29 00:27:51 2019           ;
+; Flow Status                     ; Successful - Thu May 30 00:50:09 2019           ;
 ; Quartus Prime Version           ; 17.0.2 Build 602 07/19/2017 SJ Standard Edition ;
 ; Revision Name                   ; DE1_SoC                                         ;
-; Top-level Entity Name           ; testscreen                                      ;
+; Top-level Entity Name           ; audio                                           ;
 ; Family                          ; Cyclone V                                       ;
 ; Device                          ; 5CSEMA5F31C6                                    ;
 ; Timing Models                   ; Final                                           ;
-; Logic utilization (in ALMs)     ; 924 / 32,070 ( 3 % )                            ;
-; Total registers                 ; 527                                             ;
-; Total pins                      ; 52 / 457 ( 11 % )                               ;
+; Logic utilization (in ALMs)     ; 152 / 32,070 ( < 1 % )                          ;
+; Total registers                 ; 169                                             ;
+; Total pins                      ; 24 / 457 ( 5 % )                                ;
 ; Total virtual pins              ; 0                                               ;
-; Total block memory bits         ; 0 / 4,065,280 ( 0 % )                           ;
+; Total block memory bits         ; 6,144 / 4,065,280 ( < 1 % )                     ;
 ; Total DSP Blocks                ; 0 / 87 ( 0 % )                                  ;
 ; Total HSSI RX PCSs              ; 0                                               ;
 ; Total HSSI PMA RX Deserializers ; 0                                               ;
@@ -68,7 +68,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/29/2019 00:25:49 ;
+; Start date & time ; 05/30/2019 00:48:21 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; DE1_SoC             ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 202883595068679.155911474914276        ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 202883595068652.155920250102596        ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Systemverilog Hdl                      ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (SystemVerilog)        ; <None>        ; --          ; --             ;
 ; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --          ; eda_simulation ;
@@ -87,16 +87,17 @@ agreement for further details.
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --             ;
 ; MISC_FILE                           ; CLOCK25_PLL.cmp                        ; --            ; --          ; --             ;
 ; MISC_FILE                           ; CLOCK25_PLL_sim/CLOCK25_PLL.vo         ; --            ; --          ; --             ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; testscreen  ; Top            ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; testscreen  ; Top            ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; testscreen  ; Top            ;
+; MISC_FILE                           ; audio_rom_bb.v                         ; --            ; --          ; --             ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; audio       ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; audio       ; Top            ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; audio       ; Top            ;
 ; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --          ; --             ;
 ; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --             ;
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --             ;
 ; SPD_FILE                            ; CLOCK25_PLL.spd                        ; --            ; --          ; --             ;
 ; STATE_MACHINE_PROCESSING            ; User-Encoded                           ; Auto          ; --          ; --             ;
 ; SYNTHESIS_ONLY_QIP                  ; On                                     ; --            ; --          ; --             ;
-; TOP_LEVEL_ENTITY                    ; testscreen                             ; DE1_SoC       ; --          ; --             ;
+; TOP_LEVEL_ENTITY                    ; audio                                  ; DE1_SoC       ; --          ; --             ;
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
 
 
@@ -105,12 +106,12 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:21     ; 1.0                     ; 4907 MB             ; 00:00:35                           ;
-; Fitter                    ; 00:01:13     ; 1.1                     ; 6867 MB             ; 00:03:37                           ;
-; Assembler                 ; 00:00:09     ; 1.0                     ; 4868 MB             ; 00:00:09                           ;
-; TimeQuest Timing Analyzer ; 00:00:10     ; 1.7                     ; 5231 MB             ; 00:00:14                           ;
-; EDA Netlist Writer        ; 00:00:03     ; 1.0                     ; 4893 MB             ; 00:00:03                           ;
-; Total                     ; 00:01:56     ; --                      ; --                  ; 00:04:38                           ;
+; Analysis & Synthesis      ; 00:00:17     ; 1.0                     ; 4900 MB             ; 00:00:30                           ;
+; Fitter                    ; 00:00:57     ; 1.0                     ; 6989 MB             ; 00:02:40                           ;
+; Assembler                 ; 00:00:11     ; 1.0                     ; 4854 MB             ; 00:00:09                           ;
+; TimeQuest Timing Analyzer ; 00:00:09     ; 1.1                     ; 5241 MB             ; 00:00:09                           ;
+; EDA Netlist Writer        ; 00:00:03     ; 1.0                     ; 4873 MB             ; 00:00:02                           ;
+; Total                     ; 00:01:37     ; --                      ; --                  ; 00:03:30                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -119,11 +120,11 @@ agreement for further details.
 +---------------------------+------------------+------------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +---------------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis      ; EE-137PC27       ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter                    ; EE-137PC27       ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler                 ; EE-137PC27       ; Windows 10 ; 10.0       ; x86_64         ;
-; TimeQuest Timing Analyzer ; EE-137PC27       ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer        ; EE-137PC27       ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis      ; EE-137PC18       ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter                    ; EE-137PC18       ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler                 ; EE-137PC18       ; Windows 10 ; 10.0       ; x86_64         ;
+; TimeQuest Timing Analyzer ; EE-137PC18       ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer        ; EE-137PC18       ; Windows 10 ; 10.0       ; x86_64         ;
 +---------------------------+------------------+------------+------------+----------------+
 
 

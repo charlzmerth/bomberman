@@ -15,13 +15,23 @@ module audio (CLOCK_50, CLOCK2_50, KEY, SW, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XC
 	
 	// Local wires.
 	wire read_ready, write_ready, read, write;
-	wire signed [23:0] readdata_left, readdata_right;
+	wire signed [23:0] readdata, readdata_left, readdata_right;
 	wire signed [23:0] writedata_left, writedata_right;
 	wire signed [23:0] writedata_left_unfiltered, writedata_right_unfiltered;
 	wire signed [23:0] writedata_left_filtered, writedata_right_filtered;
+	wire [31:0] divided_clocks;
 	wire reset = SW[0];
 	wire read_write_ready = read_ready && write_ready;
 	reg [13:0] play_counter;
+	wire audio_clk;
+	reg cycled;
+	
+	audio_rom ar (.address(play_counter), .clock(CLOCK_50), .q(readdata));
+	clock_divider cd (.clock(CLOCK_50), .reset(reset), .divided_clocks(divided_clocks));
+	
+	assign audio_clk = divided_clocks[9]; // ~44.1kHz clock
+	assign readdata_left = readdata;
+	assign readdata_right = readdata;
 	
 	/////////////////////////////////
 	// Your code goes here 
@@ -32,13 +42,16 @@ module audio (CLOCK_50, CLOCK2_50, KEY, SW, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XC
 	assign read = read_ready;
 	assign write = write_ready;
 	
-	always_ff @(posedge CLOCK_50) begin
+	always @(posedge CLOCK_50) begin
 		if (reset) begin
 			play_counter <= 0;
 		end
-		else if (~KEY[2]) begin
-			incr_counter <= 1;
+		else if (~KEY[2] && audio_clk && ~cycled) begin
+			play_counter <= play_counter + 1;
+			cycled <= 1;
 		end
+		if (~audio_clk)
+			cycled <= 0;
 	end
 	
 	// SW[0] selects whether filtered or unfiltered audio is output
@@ -96,24 +109,6 @@ module audio (CLOCK_50, CLOCK2_50, KEY, SW, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XC
 		read_ready, write_ready,
 		readdata_left, readdata_right,
 		AUD_DACDAT
-	);
-	
-	avg_filter_newFIFO R(
-		CLOCK_50,
-		reset,
-		read_write_ready,
-		
-		readdata_right,
-		writedata_right
-	);
-	
-	avg_filter_newFIFO L(
-		CLOCK_50,
-		reset,
-		read_write_ready,
-		
-		readdata_left,
-		writedata_left
 	);
 
 endmodule

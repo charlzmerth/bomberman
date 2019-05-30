@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Wed May 29 00:26:09 2019
+Analysis & Synthesis Status : Successful - Thu May 30 00:48:38 2019
 Quartus Prime Version : 17.0.2 Build 602 07/19/2017 SJ Standard Edition
 Revision Name : DE1_SoC
-Top-level Entity Name : testscreen
+Top-level Entity Name : audio
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 523
-Total pins : 52
+Total registers : 169
+Total pins : 24
 Total virtual pins : 0
-Total block memory bits : 0
+Total block memory bits : 6,144
 Total DSP Blocks : 0
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0
