@@ -30,8 +30,8 @@ module audio (CLOCK_50, CLOCK2_50, KEY, SW, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XC
 	clock_divider cd (.clock(CLOCK_50), .reset(reset), .divided_clocks(divided_clocks));
 	
 	assign audio_clk = divided_clocks[9]; // ~44.1kHz clock
-	assign readdata_left = readdata;
-	assign readdata_right = readdata;
+	assign readdata_left = readdata * 1000;
+	assign readdata_right = readdata * 1000;
 	
 	/////////////////////////////////
 	// Your code goes here 
