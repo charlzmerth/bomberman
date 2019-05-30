@@ -7,135 +7,684 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/Users/nathan7/Documents/bomberman
-valtera_up_avalon_video_vga_timing
-Z1 !s110 1558745537
+dC:/Users/nathan7/Documents/bomberman
+vAltera_UP_Audio_Bit_Counter
+Z0 !s110 1559210614
 !i10b 1
-!s100 d_[b<b>^^KQS=2DZ=dMJ;0
-Ia[BWlB3WU49@C;67h0BX@3
-Z2 VDg1SIo80bB@j0V0VzS_@n1
-R0
-Z3 w1558740594
-8./altera_up_avalon_video_vga_timing.v
-F./altera_up_avalon_video_vga_timing.v
-L0 47
-Z4 OV;L;10.5b;63
+!s100 J2Tb5SPZN>>^6S@MM9o:c1
+I^zBia]8Bn:aKPz1@Z`]110
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Users/merthc/Desktop/bomberman
+Z3 w1559203806
+8./Altera_UP_Audio_Bit_Counter.v
+F./Altera_UP_Audio_Bit_Counter.v
+Z4 L0 49
+Z5 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z5 !s108 1558745537.000000
+Z6 !s108 1559210614.000000
+!s107 ./Altera_UP_Audio_Bit_Counter.v|
+!s90 -reportprogress|300|./Altera_UP_Audio_Bit_Counter.v|
+!i113 1
+Z7 tCvgOpt 0
+n@altera_@u@p_@audio_@bit_@counter
+vAltera_UP_Audio_In_Deserializer
+R0
+!i10b 1
+!s100 MnK8@IQLcda;1gGBW7@Tz0
+IX;a<gP`Kjo8F63@VJja7e0
+R1
+R2
+R3
+8./Altera_UP_Audio_In_Deserializer.v
+F./Altera_UP_Audio_In_Deserializer.v
+Z8 L0 47
+R5
+r1
+!s85 0
+31
+R6
+!s107 ./Altera_UP_Audio_In_Deserializer.v|
+!s90 -reportprogress|300|./Altera_UP_Audio_In_Deserializer.v|
+!i113 1
+R7
+n@altera_@u@p_@audio_@in_@deserializer
+vAltera_UP_Audio_Out_Serializer
+R0
+!i10b 1
+!s100 BllhdjOFFm6Rj]o@Xid882
+I?gP]i<4_i3C^c>Z@OZGem3
+R1
+R2
+R3
+8./Altera_UP_Audio_Out_Serializer.v
+F./Altera_UP_Audio_Out_Serializer.v
+R8
+R5
+r1
+!s85 0
+31
+R6
+!s107 ./Altera_UP_Audio_Out_Serializer.v|
+!s90 -reportprogress|300|./Altera_UP_Audio_Out_Serializer.v|
+!i113 1
+R7
+n@altera_@u@p_@audio_@out_@serializer
+valtera_up_avalon_video_vga_timing
+R0
+!i10b 1
+!s100 d_[b<b>^^KQS=2DZ=dMJ;0
+Ia[BWlB3WU49@C;67h0BX@3
+R1
+R2
+R3
+8./altera_up_avalon_video_vga_timing.v
+F./altera_up_avalon_video_vga_timing.v
+R8
+R5
+r1
+!s85 0
+31
+R6
 !s107 ./altera_up_avalon_video_vga_timing.v|
 !s90 -reportprogress|300|./altera_up_avalon_video_vga_timing.v|
 !i113 1
-Z6 tCvgOpt 0
-vCLOCK25_PLL
+R7
+vAltera_UP_Clock_Edge
+R0
+!i10b 1
+!s100 XaX6^HY04T3X?D32?HdN>2
+IK]TC[PFEEDkIF2;WM`hG]0
 R1
+R2
+R3
+8./Altera_UP_Clock_Edge.v
+F./Altera_UP_Clock_Edge.v
+Z9 L0 48
+R5
+r1
+!s85 0
+31
+R6
+!s107 ./Altera_UP_Clock_Edge.v|
+!s90 -reportprogress|300|./Altera_UP_Clock_Edge.v|
+!i113 1
+R7
+n@altera_@u@p_@clock_@edge
+vAltera_UP_I2C
+R0
+!i10b 1
+!s100 JU94J3RToJ0DChmlIi^B43
+If@K>J76b1INkPl4WhUcP@3
+R1
+R2
+R3
+8./Altera_UP_I2C.v
+F./Altera_UP_I2C.v
+R9
+R5
+r1
+!s85 0
+31
+R6
+!s107 ./Altera_UP_I2C.v|
+!s90 -reportprogress|300|./Altera_UP_I2C.v|
+!i113 1
+R7
+n@altera_@u@p_@i2@c
+vAltera_UP_I2C_AV_Auto_Initialize
+Z10 !s110 1559210615
+!i10b 1
+!s100 TbIA;9787GSRoV9be_N2^2
+IWQ`6jMC>55e8zWW3Z_7IN0
+R1
+R2
+R3
+8./Altera_UP_I2C_AV_Auto_Initialize.v
+F./Altera_UP_I2C_AV_Auto_Initialize.v
+R9
+R5
+r1
+!s85 0
+31
+R6
+!s107 ./Altera_UP_I2C_AV_Auto_Initialize.v|
+!s90 -reportprogress|300|./Altera_UP_I2C_AV_Auto_Initialize.v|
+!i113 1
+R7
+n@altera_@u@p_@i2@c_@a@v_@auto_@initialize
+vAltera_UP_I2C_DC_Auto_Initialize
+R10
+!i10b 1
+!s100 WaG<YW8VGFlT:ijQ;9gO?3
+IXDijFcmUcdJL`=jJSTV=b0
+R1
+R2
+R3
+8./Altera_UP_I2C_DC_Auto_Initialize.v
+F./Altera_UP_I2C_DC_Auto_Initialize.v
+R9
+R5
+r1
+!s85 0
+31
+Z11 !s108 1559210615.000000
+!s107 ./Altera_UP_I2C_DC_Auto_Initialize.v|
+!s90 -reportprogress|300|./Altera_UP_I2C_DC_Auto_Initialize.v|
+!i113 1
+R7
+n@altera_@u@p_@i2@c_@d@c_@auto_@initialize
+vAltera_UP_I2C_LCM_Auto_Initialize
+R10
+!i10b 1
+!s100 Jn038;8oQ^Ukg7ZXlQdT33
+ILL<W<EPiGVZK[9[FIJhW;1
+R1
+R2
+R3
+8./Altera_UP_I2C_LCM_Auto_Initialize.v
+F./Altera_UP_I2C_LCM_Auto_Initialize.v
+R9
+R5
+r1
+!s85 0
+31
+R11
+!s107 ./Altera_UP_I2C_LCM_Auto_Initialize.v|
+!s90 -reportprogress|300|./Altera_UP_I2C_LCM_Auto_Initialize.v|
+!i113 1
+R7
+n@altera_@u@p_@i2@c_@l@c@m_@auto_@initialize
+vAltera_UP_Slow_Clock_Generator
+R10
+!i10b 1
+!s100 U@B3NehPQRXcdeI<e=@I53
+IEaTVOMIfaa>7a;GE4Oe]g3
+R1
+R2
+R3
+8./Altera_UP_Slow_Clock_Generator.v
+F./Altera_UP_Slow_Clock_Generator.v
+L0 53
+R5
+r1
+!s85 0
+31
+R11
+!s107 ./Altera_UP_Slow_Clock_Generator.v|
+!s90 -reportprogress|300|./Altera_UP_Slow_Clock_Generator.v|
+!i113 1
+R7
+n@altera_@u@p_@slow_@clock_@generator
+vAltera_UP_SYNC_FIFO
+R10
+!i10b 1
+!s100 0zF@jl6ha3W:>M9k@`7A31
+I16Ab=f]C=I?gCI>86O5bG0
+R1
+R2
+R3
+8./Altera_UP_SYNC_FIFO.v
+F./Altera_UP_SYNC_FIFO.v
+R8
+R5
+r1
+!s85 0
+31
+R11
+!s107 ./Altera_UP_SYNC_FIFO.v|
+!s90 -reportprogress|300|./Altera_UP_SYNC_FIFO.v|
+!i113 1
+R7
+n@altera_@u@p_@s@y@n@c_@f@i@f@o
+vaudio
+Z12 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z13 !s110 1559210613
+!i10b 1
+!s100 =DcGSIfY[EInLPml3TRC`0
+IXdJRk06>6UA8Rz[>;Y>mj2
+R1
+Z14 !s105 audio_sv_unit
+S1
+R2
+Z15 w1559209932
+Z16 8./audio.sv
+Z17 F./audio.sv
+L0 1
+R5
+r1
+!s85 0
+31
+Z18 !s108 1559210613.000000
+Z19 !s107 ./audio.sv|
+Z20 !s90 -reportprogress|300|./audio.sv|
+!i113 1
+R7
+vaudio_and_video_config
+R10
+!i10b 1
+!s100 z3>_mDg4hMjn4VjXHn00U3
+IZkeTTkzoffnBELMo:0SmW0
+R1
+R2
+R3
+8./audio_and_video_config.v
+F./audio_and_video_config.v
+R4
+R5
+r1
+!s85 0
+31
+R11
+!s107 ./audio_and_video_config.v|
+!s90 -reportprogress|300|./audio_and_video_config.v|
+!i113 1
+R7
+vaudio_codec
+R10
+!i10b 1
+!s100 43h1ad@K@aG98IRVc4i1M1
+Il5jdb3Yg0[LkkDZXocg4G2
+R1
+R2
+R3
+8./audio_codec.v
+F./audio_codec.v
+R4
+R5
+r1
+!s85 0
+31
+R11
+!s107 ./audio_codec.v|
+!s90 -reportprogress|300|./audio_codec.v|
+!i113 1
+R7
+vaudio_rom
+Z21 !s110 1559210616
+!i10b 1
+!s100 mSVW0Q^g;F<nW=:T@a_O=2
+IjmT5[hCb9NhS]F7Mcm[Sl0
+R1
+R2
+R3
+8./audio_rom_bb.v
+F./audio_rom_bb.v
+Z22 L0 35
+R5
+r1
+!s85 0
+31
+R11
+!s107 ./audio_rom_bb.v|
+!s90 -reportprogress|300|./audio_rom_bb.v|
+!i113 1
+R7
+vaudio_testbench
+R12
+R13
+!i10b 1
+!s100 W0_eVaZn6EoGmQk<F]l?L2
+Id`SIWn_XZ=Tim5:cNVc5@2
+R1
+R14
+S1
+R2
+R15
+R16
+R17
+L0 141
+R5
+r1
+!s85 0
+31
+R18
+R19
+R20
+!i113 1
+R7
+vCLOCK25_PLL
+R21
 !i10b 1
 !s100 HmQDfcBn2^JHBH>QKWMV_0
 IPAJE>a1lB@Te=KB8n4?oY1
+R1
 R2
-R0
 R3
 8./CLOCK25_PLL.v
 F./CLOCK25_PLL.v
 L0 8
-R4
+R5
 r1
 !s85 0
 31
-R5
+Z23 !s108 1559210616.000000
 !s107 ./CLOCK25_PLL.v|
 !s90 -reportprogress|300|./CLOCK25_PLL.v|
 !i113 1
-R6
+R7
 n@c@l@o@c@k25_@p@l@l
 vCLOCK25_PLL_0002
-R1
+R21
 !i10b 1
 !s100 TGjKK]SB@KM:LmQ=2OPYH0
 IV9Qc2ADz4YBzj5CTdQbB51
+R1
 R2
-R0
-w1558740728
+R3
 8./CLOCK25_PLL/CLOCK25_PLL_0002.v
 F./CLOCK25_PLL/CLOCK25_PLL_0002.v
 L0 2
-R4
+R5
 r1
 !s85 0
 31
-R5
+R23
 !s107 ./CLOCK25_PLL/CLOCK25_PLL_0002.v|
 !s90 -reportprogress|300|./CLOCK25_PLL/CLOCK25_PLL_0002.v|
 !i113 1
-R6
+R7
 n@c@l@o@c@k25_@p@l@l_0002
-vtestscreen
-Z7 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-Z8 !s110 1558745536
-!i10b 1
-!s100 <XieiQS@EV[Ej9`jT<:P:1
-IBFD1KM`z6_P=0oHYo4G@K0
-R2
-Z9 !s105 testscreen_sv_unit
-S1
-R0
-Z10 w1558745531
-Z11 8./testscreen.sv
-Z12 F./testscreen.sv
-L0 1
-R4
-r1
-!s85 0
-31
-Z13 !s108 1558745536.000000
-Z14 !s107 ./testscreen.sv|
-Z15 !s90 -reportprogress|300|./testscreen.sv|
-!i113 1
-R6
-vtestscreen_testbench
-R7
-R8
-!i10b 1
-!s100 ho4hei1YlXU=8UazK310g1
-I3P0jI^f;QgCLJCz5kjoga3
-R2
-R9
-S1
-R0
-R10
-R11
+vclock_divider
 R12
-L0 117
-R4
+R13
+!i10b 1
+!s100 HPB25k66knN<N@CDGQk3A2
+IkD`Am7g9:;=`?a1_`6?581
+R1
+!s105 clock_divider_sv_unit
+S1
+R2
+R3
+8./clock_divider.sv
+F./clock_divider.sv
+L0 2
+R5
 r1
 !s85 0
 31
-R13
-R14
-R15
+R18
+!s107 ./clock_divider.sv|
+!s90 -reportprogress|300|./clock_divider.sv|
 !i113 1
-R6
-vvideo_driver
 R7
+vclock_generator
+R21
+!i10b 1
+!s100 39OA<gKn`aijkLgT:8]8i2
+IHQWDYoAc:2;9RO8;SJLV:0
+R1
+R2
+R3
+8./clock_generator.v
+F./clock_generator.v
+R9
+R5
+r1
+!s85 0
+31
+R23
+!s107 ./clock_generator.v|
+!s90 -reportprogress|300|./clock_generator.v|
+!i113 1
+R7
+vDE1_SoC
+R12
+R13
+!i10b 1
+!s100 K=X]EglilN9hhl;z7U2PX2
+II8c=17iajz`gn<A`PIZH<2
+R1
+!s105 DE1_SoC_sv_unit
+S1
+R2
+R3
+8./DE1_SoC.sv
+F./DE1_SoC.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R18
+!s107 ./DE1_SoC.sv|
+!s90 -reportprogress|300|./DE1_SoC.sv|
+!i113 1
+R7
+n@d@e1_@so@c
+vinit_audio
+!s110 1559205358
+!i10b 1
+!s100 LcHj4f4j[:U9aREMdXMP90
+IL4=KnJk52oihQ^k1ESa623
+R1
+R2
+Z24 w1559203807
+8./init_audio_bb.v
+F./init_audio_bb.v
+R22
+R5
+r1
+!s85 0
+31
+!s108 1559205358.000000
+!s107 ./keyboard_scancoderaw_driver.v|./keyboard_press_driver.v|./keyboard_inner_driver.v|./init_audio_inst.v|./init_audio_bb.v|./clock_generator.v|./audio_rom_bb.v|./audio_rom.v|./audio_codec.v|./audio_and_video_config.v|./altera_up_avalon_video_vga_timing.v|./CLOCK25_PLL.v|./Altera_UP_Slow_Clock_Generator.v|./Altera_UP_SYNC_FIFO.v|./Altera_UP_I2C_LCM_Auto_Initialize.v|./Altera_UP_I2C_DC_Auto_Initialize.v|./Altera_UP_I2C_AV_Auto_Initialize.v|./Altera_UP_I2C.v|./Altera_UP_Clock_Edge.v|./Altera_UP_Audio_Out_Serializer.v|./Altera_UP_Audio_In_Deserializer.v|./Altera_UP_Audio_Bit_Counter.v|
+!s90 -reportprogress|300|./Altera_UP_Audio_Bit_Counter.v|./Altera_UP_Audio_In_Deserializer.v|./Altera_UP_Audio_Out_Serializer.v|./Altera_UP_Clock_Edge.v|./Altera_UP_I2C.v|./Altera_UP_I2C_AV_Auto_Initialize.v|./Altera_UP_I2C_DC_Auto_Initialize.v|./Altera_UP_I2C_LCM_Auto_Initialize.v|./Altera_UP_SYNC_FIFO.v|./Altera_UP_Slow_Clock_Generator.v|./CLOCK25_PLL.v|./altera_up_avalon_video_vga_timing.v|./audio_and_video_config.v|./audio_codec.v|./audio_rom.v|./audio_rom_bb.v|./clock_generator.v|./init_audio_bb.v|./init_audio_inst.v|./keyboard_inner_driver.v|./keyboard_press_driver.v|./keyboard_scancoderaw_driver.v|
+!i113 1
+R7
+vinit_audio_meminit_f1k
+!s110 1559205338
+!i10b 1
+!s100 OLFE<b9_0iRL]Oa2F2DRo1
+IJKnbee?a8agO7^Ii?l05C3
+R1
+R2
+R24
+8./init_audio.v
+F./init_audio.v
 R8
+R5
+r1
+!s85 0
+31
+!s108 1559205337.000000
+!s107 ./keyboard_scancoderaw_driver.v|./keyboard_press_driver.v|./keyboard_inner_driver.v|./init_audio_inst.v|./init_audio_bb.v|./init_audio.v|./clock_generator.v|./audio_rom_bb.v|./audio_rom.v|./audio_codec.v|./audio_and_video_config.v|./altera_up_avalon_video_vga_timing.v|./CLOCK25_PLL.v|./Altera_UP_Slow_Clock_Generator.v|./Altera_UP_SYNC_FIFO.v|./Altera_UP_I2C_LCM_Auto_Initialize.v|./Altera_UP_I2C_DC_Auto_Initialize.v|./Altera_UP_I2C_AV_Auto_Initialize.v|./Altera_UP_I2C.v|./Altera_UP_Clock_Edge.v|./Altera_UP_Audio_Out_Serializer.v|./Altera_UP_Audio_In_Deserializer.v|./Altera_UP_Audio_Bit_Counter.v|
+!s90 -reportprogress|300|./Altera_UP_Audio_Bit_Counter.v|./Altera_UP_Audio_In_Deserializer.v|./Altera_UP_Audio_Out_Serializer.v|./Altera_UP_Clock_Edge.v|./Altera_UP_I2C.v|./Altera_UP_I2C_AV_Auto_Initialize.v|./Altera_UP_I2C_DC_Auto_Initialize.v|./Altera_UP_I2C_LCM_Auto_Initialize.v|./Altera_UP_SYNC_FIFO.v|./Altera_UP_Slow_Clock_Generator.v|./CLOCK25_PLL.v|./altera_up_avalon_video_vga_timing.v|./audio_and_video_config.v|./audio_codec.v|./audio_rom.v|./audio_rom_bb.v|./clock_generator.v|./init_audio.v|./init_audio_bb.v|./init_audio_inst.v|./keyboard_inner_driver.v|./keyboard_press_driver.v|./keyboard_scancoderaw_driver.v|
+!i113 1
+R7
+vkeyboard_inner_driver
+R21
+!i10b 1
+!s100 Yhi9m@2=2C<KEkaNb0Z[S3
+I?5bfX_17ZjhA`;BzgHXUC1
+R1
+R2
+R24
+8./keyboard_inner_driver.v
+F./keyboard_inner_driver.v
+L0 1
+R5
+r1
+!s85 0
+31
+R23
+!s107 ./keyboard_inner_driver.v|
+!s90 -reportprogress|300|./keyboard_inner_driver.v|
+!i113 1
+R7
+vkeyboard_press_driver
+R21
+!i10b 1
+!s100 UJh9eN5fYQJc99Edh5HR<3
+Iz5ndc=9g=<8G[L6C_890c2
+R1
+R2
+R24
+8./keyboard_press_driver.v
+F./keyboard_press_driver.v
+L0 1
+R5
+r1
+!s85 0
+31
+R23
+!s107 ./keyboard_press_driver.v|
+!s90 -reportprogress|300|./keyboard_press_driver.v|
+!i113 1
+R7
+vkeyboard_scancoderaw_driver
+R21
+!i10b 1
+!s100 MX9GlJNnAD6^V_l5U1]ME3
+I5kLX^91?jiZKCEU<kjF@n2
+R1
+R2
+R24
+8./keyboard_scancoderaw_driver.v
+F./keyboard_scancoderaw_driver.v
+L0 1
+R5
+r1
+!s85 0
+31
+R23
+!s107 ./keyboard_scancoderaw_driver.v|
+!s90 -reportprogress|300|./keyboard_scancoderaw_driver.v|
+!i113 1
+R7
+vplayer_input
+R12
+R13
+!i10b 1
+!s100 @aBXRzhmh83Z[N6P:`K=62
+IBCOZ_ZSE3[0c>5T94UfcB1
+R1
+Z25 !s105 player_input_sv_unit
+S1
+R2
+R24
+Z26 8./player_input.sv
+Z27 F./player_input.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R18
+Z28 !s107 ./player_input.sv|
+Z29 !s90 -reportprogress|300|./player_input.sv|
+!i113 1
+R7
+vplayer_input_testbench
+R12
+R13
+!i10b 1
+!s100 1fR:Wh79Z4>P:kf2PU]TS2
+Il6maFb8Sab4oQ9JA]<dXI2
+R1
+R25
+S1
+R2
+R24
+R26
+R27
+L0 42
+R5
+r1
+!s85 0
+31
+R18
+R28
+R29
+!i113 1
+R7
+vsd_reader
+!s110 1559206589
+!i10b 1
+!s100 T>hXBKO<I5J`<?<WHW7B=0
+IP3CmODOA_J7U@Fm^DkQok3
+R1
+R2
+R24
+8./sd_reader/sd_reader_bb.v
+F./sd_reader/sd_reader_bb.v
+L0 2
+R5
+r1
+!s85 0
+31
+!s108 1559206588.000000
+!s107 ./sd_reader/sd_reader_bb.v|
+!s90 -reportprogress|300|./sd_reader/sd_reader_bb.v|
+!i113 1
+R7
+vtestscreen
+R12
+R0
+!i10b 1
+!s100 TmCT9:1KAS;UDZ@DBjYnM0
+IDDLmDKfJU;7JIZ1zj<ji73
+R1
+Z30 !s105 testscreen_sv_unit
+S1
+R2
+R24
+Z31 8./testscreen.sv
+Z32 F./testscreen.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R18
+Z33 !s107 ./testscreen.sv|
+Z34 !s90 -reportprogress|300|./testscreen.sv|
+!i113 1
+R7
+vtestscreen_testbench
+R12
+R0
+!i10b 1
+!s100 <^]R46OK=6T;39=L`nFLo3
+I]lKAL?ISkMmoMK0ABZg3n2
+R1
+R30
+S1
+R2
+R24
+R31
+R32
+L0 1162
+R5
+r1
+!s85 0
+31
+R18
+R33
+R34
+!i113 1
+R7
+vvideo_driver
+R12
+R0
 !i10b 1
 !s100 TMIYHc?H^clD];MFI?P7?1
 IelL;zR>k`RVnDP4P1M7IG1
-R2
+R1
 !s105 video_driver_sv_unit
 S1
-R0
-w1558740595
+R2
+R24
 8./video_driver.sv
 F./video_driver.sv
 L0 1
-R4
+R5
 r1
 !s85 0
 31
-R13
+R6
 !s107 ./video_driver.sv|
 !s90 -reportprogress|300|./video_driver.sv|
 !i113 1
-R6
+R7

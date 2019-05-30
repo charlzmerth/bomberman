@@ -41,6 +41,8 @@ module audio_rom (
 	address,
 	clock,
 	q);
+	
+	parameter init_file_extern = "init_audio.mif";
 
 	input	[12:0]  address;
 	input	  clock;
@@ -84,7 +86,7 @@ module audio_rom (
 		altsyncram_component.address_aclr_a = "NONE",
 		altsyncram_component.clock_enable_input_a = "BYPASS",
 		altsyncram_component.clock_enable_output_a = "BYPASS",
-		altsyncram_component.init_file = "init_audio.mif",
+		altsyncram_component.init_file = init_file_extern,
 		altsyncram_component.intended_device_family = "Cyclone V",
 		altsyncram_component.lpm_hint = "ENABLE_RUNTIME_MOD=NO",
 		altsyncram_component.lpm_type = "altsyncram",
