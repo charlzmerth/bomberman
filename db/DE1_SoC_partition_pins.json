@@ -36,15 +36,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "KEY[1]",
-					"strict" : false
-				},
-				{
-					"name" : "KEY[2]",
+					"name" : "p2_ext",
 					"strict" : false
 				},
 				{
 					"name" : "KEY[3]",
+					"strict" : false
+				},
+				{
+					"name" : "p1_ext",
 					"strict" : false
 				}
 			]

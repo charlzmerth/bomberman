@@ -1,7 +1,7 @@
 module audio (CLOCK_50, CLOCK2_50, KEY, SW, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XCK, 
-		        AUD_DACLRCK, AUD_ADCLRCK, AUD_BCLK, AUD_ADCDAT, AUD_DACDAT);
+		        AUD_DACLRCK, AUD_ADCLRCK, AUD_BCLK, AUD_ADCDAT, AUD_DACDAT, p1_ext, p2_ext);
 
-	input logic CLOCK_50, CLOCK2_50;
+	input logic CLOCK_50, CLOCK2_50, p1_ext, p2_ext;
 	input logic [3:0] KEY;
 	input logic [9:0] SW;
 	// I2C Audio/Video config interface
@@ -16,34 +16,33 @@ module audio (CLOCK_50, CLOCK2_50, KEY, SW, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XC
 	// Local logics.
 	logic read_ready, write_ready, read, write;
 	logic signed [23:0] readdata, readdata_left, readdata_right;
-	logic signed [3:0] [23:0] readdata_indiv;
+	logic signed [1:0] [23:0] readdata_indiv;
 	logic signed [23:0] writedata_left, writedata_right;
 	logic signed [23:0] writedata_left_unfiltered, writedata_right_unfiltered;
 	logic signed [23:0] writedata_left_filtered, writedata_right_filtered;
 	logic [31:0] divided_clocks;
 	logic reset;
 	logic read_write_ready;
-	logic [3:0] [12:0] play_counters;
+	logic [1:0] [12:0] play_counters;
 	logic audio_clk;
-	logic [3:0] cycled, done;
+	logic [1:0] cycled, done, trig;
 	
 	assign read_write_ready = read_ready && write_ready;
 	
-	audio_rom kick (.address(play_counters[3]), .clock(CLOCK_50), .q(readdata_indiv[3]));
-		defparam kick.init_file_extern = "kick.mif";
-	audio_rom snare (.address(play_counters[2]), .clock(CLOCK_50), .q(readdata_indiv[2]));
-		defparam snare.init_file_extern = "snare.mif";
-	audio_rom hihat (.address(play_counters[1]), .clock(CLOCK_50), .q(readdata_indiv[1]));
-		defparam hihat.init_file_extern = "hihat.mif";
-	audio_rom perc (.address(play_counters[0]), .clock(CLOCK_50), .q(readdata_indiv[0]));
-		defparam perc.init_file_extern = "perc.mif";
+	assign trig[0] = ~KEY[3] || p1_ext;
+	assign trig[1] = ~KEY[0] || p2_ext;
+	
+	audio_rom p1_bomb (.address(play_counters[0]), .clock(CLOCK_50), .q(readdata_indiv[0]));
+		defparam p1_bomb.init_file_extern = "bomb.mif";
+	audio_rom p2_bomb (.address(play_counters[1]), .clock(CLOCK_50), .q(readdata_indiv[1]));
+		defparam p2_bomb.init_file_extern = "bomb.mif";
 	
 	clock_divider cd (.clock(CLOCK_50), .reset(reset), .divided_clocks(divided_clocks));
 	
-	assign readdata = readdata_indiv[3] + readdata_indiv[2] + readdata_indiv[1] + readdata_indiv[0];
+	assign readdata = readdata_indiv[1] + readdata_indiv[0];
 	assign audio_clk = divided_clocks[9]; // ~44.1kHz clock
-	assign writedata_left = readdata << 1;
-	assign writedata_right = readdata << 1;
+	assign writedata_left = readdata << 2;
+	assign writedata_right = readdata << 2;
 	assign reset = SW[0];
 	
 	/////////////////////////////////
@@ -62,13 +61,13 @@ module audio (CLOCK_50, CLOCK2_50, KEY, SW, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XC
 			play_counters <= 0;
 		end
 		else begin
-			for (i = 0; i < 4; i++) begin
+			for (i = 0; i <= 1; i++) begin
 				// Trigger once per audio_clk cycle
-				if (~KEY[i] && audio_clk && ~cycled[i] && ~done[i]) begin
+				if (trig[i] && audio_clk && ~cycled[i] && ~done[i]) begin
 					play_counters[i] <= play_counters[i] + 1;
 					cycled[i] <= 1;
 				end
-				else if (KEY[i]) begin
+				else if (trig[i]) begin
 					done[i] <= 0;
 					play_counters[i] <= 0;
 				end
@@ -76,8 +75,9 @@ module audio (CLOCK_50, CLOCK2_50, KEY, SW, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XC
 				// Reset cycled signal
 				if (~audio_clk)
 					cycled[i] <= 0;
-					
-				if (play_counters[i] == 2**13-1)
+				
+				// Prevent repeating
+				if (play_counters[i] == 2**15-1)
 					done[i] <= 1;
 			end
 		end
@@ -152,7 +152,7 @@ module audio_testbench();
 	logic AUD_DACLRCK, AUD_ADCLRCK, AUD_BCLK;
 	logic AUD_ADCDAT;
 	logic AUD_DACDAT;
-	logic clk;
+	logic clk, p1_ext, p2_ext;
 	
 	assign clk = CLOCK_50;
 

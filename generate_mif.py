@@ -3,8 +3,7 @@ import scipy.io.wavfile as wav
 
 def generate_mif(input_wav, target):
 
-    fs, y = wav.read(input_wav)
-    data = [item[0] for item in y]
+    fs, data = wav.read(input_wav)
 
     file = open(target, "w")
 
@@ -25,8 +24,3 @@ def generate_mif(input_wav, target):
     
     file.write("[{}..{}]: 0;".format(len(data), 2**13-1))
     file.write("\nEND;\n")
-
-generate_mif("./samples/kick.wav", "kick.mif")
-generate_mif("./samples/snare.wav", "snare.mif")
-generate_mif("./samples/hihat.wav", "hihat.mif")
-generate_mif("./samples/perc.wav", "perc.mif")
