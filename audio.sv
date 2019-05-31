@@ -1,8 +1,8 @@
-module audio (CLOCK_50, CLOCK2_50, KEY, SW, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XCK, 
-		        AUD_DACLRCK, AUD_ADCLRCK, AUD_BCLK, AUD_ADCDAT, AUD_DACDAT);//, p1_ext, p2_ext);
+module audio (CLOCK_50, CLOCK2_50, reset, KEY, SW, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XCK, 
+		        AUD_DACLRCK, AUD_ADCLRCK, AUD_BCLK, AUD_ADCDAT, AUD_DACDAT, ext);
 
-	input logic CLOCK_50, CLOCK2_50;
-///////////	//input logic [1:0] ext;
+	input logic CLOCK_50, CLOCK2_50, reset;
+	input logic [1:0] ext;
 	input logic [3:0] KEY;
 	input logic [9:0] SW;
 	// I2C Audio/Video config interface
@@ -22,16 +22,12 @@ module audio (CLOCK_50, CLOCK2_50, KEY, SW, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XC
 	logic signed [23:0] writedata_left_unfiltered, writedata_right_unfiltered;
 	logic signed [23:0] writedata_left_filtered, writedata_right_filtered;
 	logic [31:0] divided_clocks;
-	logic reset;
 	logic read_write_ready;
 	logic [1:0] [14:0] play_counters;
 	logic audio_clk;
-	logic [1:0] cycled, done, trig, ext;
+	logic [1:0] cycled, done, trig;
 	
 	assign read_write_ready = read_ready && write_ready;
-	
-	assign ext[0] = ~KEY[3];
-	assign ext[1] = ~KEY[0];
 	
 	audio_rom p1_bomb (.address(play_counters[0]), .clock(CLOCK_50), .q(readdata_indiv[0]));
 		defparam p1_bomb.init_file_extern = "bomb.mif";
@@ -42,9 +38,8 @@ module audio (CLOCK_50, CLOCK2_50, KEY, SW, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XC
 	
 	assign readdata = readdata_indiv[1] + readdata_indiv[0];
 	assign audio_clk = divided_clocks[9]; // ~44.1kHz clock
-	assign writedata_left = readdata << 4;
-	assign writedata_right = readdata << 4;
-	assign reset = SW[0];
+	assign writedata_left = readdata_left + (readdata << 5);
+	assign writedata_right = readdata_right + (readdata << 5);
 	
 	/////////////////////////////////
 	// Your code goes here 
