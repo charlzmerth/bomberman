@@ -32,19 +32,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "KEY[0]",
-					"strict" : false
-				},
-				{
-					"name" : "p2_ext",
-					"strict" : false
-				},
-				{
 					"name" : "KEY[3]",
 					"strict" : false
 				},
 				{
-					"name" : "p1_ext",
+					"name" : "KEY[0]",
 					"strict" : false
 				}
 			]

@@ -1,7 +1,8 @@
 module audio (CLOCK_50, CLOCK2_50, KEY, SW, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XCK, 
-		        AUD_DACLRCK, AUD_ADCLRCK, AUD_BCLK, AUD_ADCDAT, AUD_DACDAT, p1_ext, p2_ext);
+		        AUD_DACLRCK, AUD_ADCLRCK, AUD_BCLK, AUD_ADCDAT, AUD_DACDAT);//, p1_ext, p2_ext);
 
-	input logic CLOCK_50, CLOCK2_50, p1_ext, p2_ext;
+	input logic CLOCK_50, CLOCK2_50;
+///////////	//input logic [1:0] ext;
 	input logic [3:0] KEY;
 	input logic [9:0] SW;
 	// I2C Audio/Video config interface
@@ -23,14 +24,14 @@ module audio (CLOCK_50, CLOCK2_50, KEY, SW, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XC
 	logic [31:0] divided_clocks;
 	logic reset;
 	logic read_write_ready;
-	logic [1:0] [12:0] play_counters;
+	logic [1:0] [14:0] play_counters;
 	logic audio_clk;
-	logic [1:0] cycled, done, trig;
+	logic [1:0] cycled, done, trig, ext;
 	
 	assign read_write_ready = read_ready && write_ready;
 	
-	assign trig[0] = ~KEY[3] || p1_ext;
-	assign trig[1] = ~KEY[0] || p2_ext;
+	assign ext[0] = ~KEY[3];
+	assign ext[1] = ~KEY[0];
 	
 	audio_rom p1_bomb (.address(play_counters[0]), .clock(CLOCK_50), .q(readdata_indiv[0]));
 		defparam p1_bomb.init_file_extern = "bomb.mif";
@@ -41,8 +42,8 @@ module audio (CLOCK_50, CLOCK2_50, KEY, SW, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XC
 	
 	assign readdata = readdata_indiv[1] + readdata_indiv[0];
 	assign audio_clk = divided_clocks[9]; // ~44.1kHz clock
-	assign writedata_left = readdata << 2;
-	assign writedata_right = readdata << 2;
+	assign writedata_left = readdata << 4;
+	assign writedata_right = readdata << 4;
 	assign reset = SW[0];
 	
 	/////////////////////////////////
@@ -59,6 +60,7 @@ module audio (CLOCK_50, CLOCK2_50, KEY, SW, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XC
 	always @(posedge CLOCK_50) begin
 		if (reset) begin
 			play_counters <= 0;
+			trig <= 0;
 		end
 		else begin
 			for (i = 0; i <= 1; i++) begin
@@ -67,10 +69,16 @@ module audio (CLOCK_50, CLOCK2_50, KEY, SW, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XC
 					play_counters[i] <= play_counters[i] + 1;
 					cycled[i] <= 1;
 				end
-				else if (trig[i]) begin
+				else if (~trig[i]) begin
 					done[i] <= 0;
 					play_counters[i] <= 0;
 				end
+				
+				// Play through even if unpressed
+				if (ext[i])
+					trig[i] <= 1;
+				else if (done[i])
+					trig[i] <= 0;
 					
 				// Reset cycled signal
 				if (~audio_clk)
@@ -140,41 +148,4 @@ module audio (CLOCK_50, CLOCK2_50, KEY, SW, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XC
 		AUD_DACDAT
 	);
 
-endmodule
-
-`timescale 1ps / 1ps
-module audio_testbench();
-	logic CLOCK_50, CLOCK2_50;
-	logic [3:0] KEY;
-	logic [9:0] SW;
-	wire FPGA_I2C_SCLK, FPGA_I2C_SDAT;
-	logic AUD_XCK;
-	logic AUD_DACLRCK, AUD_ADCLRCK, AUD_BCLK;
-	logic AUD_ADCDAT;
-	logic AUD_DACDAT;
-	logic clk, p1_ext, p2_ext;
-	
-	assign clk = CLOCK_50;
-
-	// Clock generation
-	parameter PERIOD = 100; // period = length of clock
-	initial begin
-		CLOCK_50 <= 0;
-		forever #(PERIOD/2) CLOCK_50 = ~CLOCK_50;
-	end
-
-	audio dut (.*); // ".*" Implicitly connects all ports to variables with matching names
-
-	initial begin
-		SW[0] <= 1; KEY[2] <= 1; @(posedge clk);
-		SW[0] <= 0; @(posedge clk);
-		
-		repeat (10) @(posedge clk);
-		
-		KEY[2] <= 0; @(posedge clk);
-		
-		repeat (1000) @(posedge clk);
-
-		$stop; // End simulation
-	end
 endmodule
