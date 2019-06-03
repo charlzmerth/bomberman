@@ -36,6 +36,7 @@ always @(posedge clock50)
 
 always @(posedge clock)
 begin
+	if (reset) filter <= 8'b0;
    filter <= {keyboard_clk, filter[7:1]};
    if (filter==8'b1111_1111) keyboard_clk_filtered <= 1;
    else if (filter==8'b0000_0000) keyboard_clk_filtered <= 0;

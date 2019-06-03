@@ -37,7 +37,8 @@ keyboard_inner_driver kbd(
   .scan_code(scan_code)
 );
 
-always @(posedge CLOCK_50)
+always @(posedge CLOCK_50) begin
+	if (reset) count <= 0;
 	case(count)
 		2'b00:
 			if(scan_ready)
@@ -91,4 +92,5 @@ always @(posedge CLOCK_50)
 				valid <= 0;
 			end
 	endcase
+	end
 endmodule 

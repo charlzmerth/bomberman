@@ -206,7 +206,7 @@ R2
 R3
 8./Altera_UP_Slow_Clock_Generator.v
 F./Altera_UP_Slow_Clock_Generator.v
-L0 53
+Z12 L0 53
 R5
 r1
 !s85 0
@@ -239,26 +239,26 @@ R11
 R7
 n@altera_@u@p_@s@y@n@c_@f@i@f@o
 vaudio
-Z12 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-Z13 !s110 1559210613
+Z13 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z14 !s110 1559210613
 !i10b 1
 !s100 =DcGSIfY[EInLPml3TRC`0
 IXdJRk06>6UA8Rz[>;Y>mj2
 R1
-Z14 !s105 audio_sv_unit
+Z15 !s105 audio_sv_unit
 S1
 R2
-Z15 w1559209932
-Z16 8./audio.sv
-Z17 F./audio.sv
+Z16 w1559209932
+Z17 8./audio.sv
+Z18 F./audio.sv
 L0 1
 R5
 r1
 !s85 0
 31
-Z18 !s108 1559210613.000000
-Z19 !s107 ./audio.sv|
-Z20 !s90 -reportprogress|300|./audio.sv|
+Z19 !s108 1559210613.000000
+Z20 !s107 ./audio.sv|
+Z21 !s90 -reportprogress|300|./audio.sv|
 !i113 1
 R7
 vaudio_and_video_config
@@ -302,7 +302,7 @@ R11
 !i113 1
 R7
 vaudio_rom
-Z21 !s110 1559210616
+Z22 !s110 1559210616
 !i10b 1
 !s100 mSVW0Q^g;F<nW=:T@a_O=2
 IjmT5[hCb9NhS]F7Mcm[Sl0
@@ -311,7 +311,7 @@ R2
 R3
 8./audio_rom_bb.v
 F./audio_rom_bb.v
-Z22 L0 35
+Z23 L0 35
 R5
 r1
 !s85 0
@@ -322,30 +322,30 @@ R11
 !i113 1
 R7
 vaudio_testbench
-R12
 R13
+R14
 !i10b 1
 !s100 W0_eVaZn6EoGmQk<F]l?L2
 Id`SIWn_XZ=Tim5:cNVc5@2
 R1
-R14
+R15
 S1
 R2
-R15
 R16
 R17
+R18
 L0 141
 R5
 r1
 !s85 0
 31
-R18
 R19
 R20
+R21
 !i113 1
 R7
 vCLOCK25_PLL
-R21
+R22
 !i10b 1
 !s100 HmQDfcBn2^JHBH>QKWMV_0
 IPAJE>a1lB@Te=KB8n4?oY1
@@ -359,14 +359,14 @@ R5
 r1
 !s85 0
 31
-Z23 !s108 1559210616.000000
+Z24 !s108 1559210616.000000
 !s107 ./CLOCK25_PLL.v|
 !s90 -reportprogress|300|./CLOCK25_PLL.v|
 !i113 1
 R7
 n@c@l@o@c@k25_@p@l@l
 vCLOCK25_PLL_0002
-R21
+R22
 !i10b 1
 !s100 TGjKK]SB@KM:LmQ=2OPYH0
 IV9Qc2ADz4YBzj5CTdQbB51
@@ -380,15 +380,15 @@ R5
 r1
 !s85 0
 31
-R23
+R24
 !s107 ./CLOCK25_PLL/CLOCK25_PLL_0002.v|
 !s90 -reportprogress|300|./CLOCK25_PLL/CLOCK25_PLL_0002.v|
 !i113 1
 R7
 n@c@l@o@c@k25_@p@l@l_0002
 vclock_divider
-R12
 R13
+R14
 !i10b 1
 !s100 HPB25k66knN<N@CDGQk3A2
 IkD`Am7g9:;=`?a1_`6?581
@@ -404,13 +404,13 @@ R5
 r1
 !s85 0
 31
-R18
+R19
 !s107 ./clock_divider.sv|
 !s90 -reportprogress|300|./clock_divider.sv|
 !i113 1
 R7
 vclock_generator
-R21
+R22
 !i10b 1
 !s100 39OA<gKn`aijkLgT:8]8i2
 IHQWDYoAc:2;9RO8;SJLV:0
@@ -424,14 +424,14 @@ R5
 r1
 !s85 0
 31
-R23
+R24
 !s107 ./clock_generator.v|
 !s90 -reportprogress|300|./clock_generator.v|
 !i113 1
 R7
 vDE1_SoC
-R12
 R13
+R14
 !i10b 1
 !s100 K=X]EglilN9hhl;z7U2PX2
 II8c=17iajz`gn<A`PIZH<2
@@ -447,7 +447,7 @@ R5
 r1
 !s85 0
 31
-R18
+R19
 !s107 ./DE1_SoC.sv|
 !s90 -reportprogress|300|./DE1_SoC.sv|
 !i113 1
@@ -460,10 +460,10 @@ vinit_audio
 IL4=KnJk52oihQ^k1ESa623
 R1
 R2
-Z24 w1559203807
+Z25 w1559203807
 8./init_audio_bb.v
 F./init_audio_bb.v
-R22
+R23
 R5
 r1
 !s85 0
@@ -480,7 +480,7 @@ vinit_audio_meminit_f1k
 IJKnbee?a8agO7^Ii?l05C3
 R1
 R2
-R24
+R25
 8./init_audio.v
 F./init_audio.v
 R8
@@ -494,13 +494,13 @@ r1
 !i113 1
 R7
 vkeyboard_inner_driver
-R21
+Z26 !s110 1559538029
 !i10b 1
-!s100 Yhi9m@2=2C<KEkaNb0Z[S3
-I?5bfX_17ZjhA`;BzgHXUC1
+!s100 SRo=?W6ffBGN=Mj1ME@PY2
+I`d>fJkkU1DoLld6`eoWMo1
 R1
 R2
-R24
+w1559537942
 8./keyboard_inner_driver.v
 F./keyboard_inner_driver.v
 L0 1
@@ -508,19 +508,19 @@ R5
 r1
 !s85 0
 31
-R23
+!s108 1559538029.000000
 !s107 ./keyboard_inner_driver.v|
 !s90 -reportprogress|300|./keyboard_inner_driver.v|
 !i113 1
 R7
 vkeyboard_press_driver
-R21
+R26
 !i10b 1
-!s100 UJh9eN5fYQJc99Edh5HR<3
-Iz5ndc=9g=<8G[L6C_890c2
+!s100 OnoF^dNCRGX]:CohX7Smk2
+IQ?gfHHm0=fg5DaVCP?mT70
 R1
 R2
-R24
+w1559538022
 8./keyboard_press_driver.v
 F./keyboard_press_driver.v
 L0 1
@@ -528,19 +528,19 @@ R5
 r1
 !s85 0
 31
-R23
+Z27 !s108 1559538028.000000
 !s107 ./keyboard_press_driver.v|
 !s90 -reportprogress|300|./keyboard_press_driver.v|
 !i113 1
 R7
 vkeyboard_scancoderaw_driver
-R21
+R22
 !i10b 1
 !s100 MX9GlJNnAD6^V_l5U1]ME3
 I5kLX^91?jiZKCEU<kjF@n2
 R1
 R2
-R24
+R25
 8./keyboard_scancoderaw_driver.v
 F./keyboard_scancoderaw_driver.v
 L0 1
@@ -548,55 +548,55 @@ R5
 r1
 !s85 0
 31
-R23
+R24
 !s107 ./keyboard_scancoderaw_driver.v|
 !s90 -reportprogress|300|./keyboard_scancoderaw_driver.v|
 !i113 1
 R7
 vplayer_input
-R12
 R13
+Z28 !s110 1559538028
 !i10b 1
-!s100 @aBXRzhmh83Z[N6P:`K=62
-IBCOZ_ZSE3[0c>5T94UfcB1
+!s100 m=5HG6]?biTl;6PA79Ah:3
+IQzOGUAo>oSjo6nB>E??Ka2
 R1
-Z25 !s105 player_input_sv_unit
+Z29 !s105 player_input_sv_unit
 S1
 R2
-R24
-Z26 8./player_input.sv
-Z27 F./player_input.sv
-L0 1
+Z30 w1559537668
+Z31 8./player_input.sv
+Z32 F./player_input.sv
+L0 10
 R5
 r1
 !s85 0
 31
-R18
-Z28 !s107 ./player_input.sv|
-Z29 !s90 -reportprogress|300|./player_input.sv|
+R27
+Z33 !s107 ./player_input.sv|
+Z34 !s90 -reportprogress|300|./player_input.sv|
 !i113 1
 R7
 vplayer_input_testbench
-R12
 R13
+R28
 !i10b 1
-!s100 1fR:Wh79Z4>P:kf2PU]TS2
-Il6maFb8Sab4oQ9JA]<dXI2
+!s100 ah0Hbfo0F3HFUQ2dN3OiI0
+I_9^GZOVi[iG7=7;`:I_?I1
 R1
-R25
+R29
 S1
 R2
-R24
-R26
-R27
-L0 42
+R30
+R31
+R32
+R12
 R5
 r1
 !s85 0
 31
-R18
-R28
-R29
+R27
+R33
+R34
 !i113 1
 R7
 vsd_reader
@@ -606,7 +606,7 @@ vsd_reader
 IP3CmODOA_J7U@Fm^DkQok3
 R1
 R2
-R24
+R25
 8./sd_reader/sd_reader_bb.v
 F./sd_reader/sd_reader_bb.v
 L0 2
@@ -620,53 +620,53 @@ r1
 !i113 1
 R7
 vtestscreen
-R12
+R13
 R0
 !i10b 1
 !s100 TmCT9:1KAS;UDZ@DBjYnM0
 IDDLmDKfJU;7JIZ1zj<ji73
 R1
-Z30 !s105 testscreen_sv_unit
+Z35 !s105 testscreen_sv_unit
 S1
 R2
-R24
-Z31 8./testscreen.sv
-Z32 F./testscreen.sv
+R25
+Z36 8./testscreen.sv
+Z37 F./testscreen.sv
 L0 1
 R5
 r1
 !s85 0
 31
-R18
-Z33 !s107 ./testscreen.sv|
-Z34 !s90 -reportprogress|300|./testscreen.sv|
+R19
+Z38 !s107 ./testscreen.sv|
+Z39 !s90 -reportprogress|300|./testscreen.sv|
 !i113 1
 R7
 vtestscreen_testbench
-R12
+R13
 R0
 !i10b 1
 !s100 <^]R46OK=6T;39=L`nFLo3
 I]lKAL?ISkMmoMK0ABZg3n2
 R1
-R30
+R35
 S1
 R2
-R24
-R31
-R32
+R25
+R36
+R37
 L0 1162
 R5
 r1
 !s85 0
 31
-R18
-R33
-R34
+R19
+R38
+R39
 !i113 1
 R7
 vvideo_driver
-R12
+R13
 R0
 !i10b 1
 !s100 TMIYHc?H^clD];MFI?P7?1
@@ -675,7 +675,7 @@ R1
 !s105 video_driver_sv_unit
 S1
 R2
-R24
+R25
 8./video_driver.sv
 F./video_driver.sv
 L0 1
